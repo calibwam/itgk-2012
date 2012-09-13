@@ -1,0 +1,22 @@
+1a
+RAM mister det lagrede ved strømavbrudd, og har ingen bevegelige deler.
+
+1b
+RAM kan skrives til, mens ROM kan bare leses.
+
+1c
+Tiden det tar å slå opp er lik for alle adresser i minnet.
+
+1d
+stuff er en funksjon, x er et parameter.
+Du trenger : etter linja med funksjonsdefinisjon, mismatch mellom stringtegn, y blir en streng når du tar inn input, og kan dermed ikke brukes direkte til matematikk.
+
+
+2a
+7 3
+5 4
+4 5
+4 5
+
+2b
+x og y er globale variable. ved start av main har de verdien satt i globale skopet, men blir satt til 7 og 3 før de printes ut. Deretter kalles miks med y og x  som parametre, og setter dermed y til 5 og x til 4, som deretter printes ut. Tilbake i main kalles tull, som printer ut x og y slik de ble satt i miks. Til slutt printes disse også ut i main før programmet avsluttes.
