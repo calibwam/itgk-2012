@@ -9,7 +9,9 @@ def weekday_newyear(year):
     return day % 7
 
 def is_workday(weekday):
-    pass
+    if 0 < weekday < 6:
+        return True
+    return False
 
 for a in range(1900,1920):
     print(a, days[weekday_newyear(a)])
