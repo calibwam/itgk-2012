@@ -20,15 +20,27 @@ print("Port salut is found in the following shelfs:")
 list(map(print, cheeses['port salut']))
 
 
-print("The following cheeses is potentionally infected:")
+def check_cheese(cheese, shelf):
+    if shelf.split('-')[0] in infected_shelfs and cheese not in pos_infected_cheeses:
+        return 1
+    return 0
+
+print("\nThe following cheeses is potentionally infected:")
 infected_shelfs = ['A234', 'A235', 'B13', 'B14', 'B15', 'C31']
-
-
-
 pos_infected_cheeses = []
 for cheese in cheeses.keys():
-    [cheese for x in cheeses[cheese] if x.split('-')[0] in infected_shelfs]
-
-def check_cheese(
-
+    for shelf in cheeses[cheese]:
+        if check_cheese(cheese, shelf):
+            pos_infected_cheeses.append(cheese)
 list(map(print, pos_infected_cheeses))
+
+
+print("\nCheeses to be sold:")
+cheese_to_be_sold = []
+for cheese in cheeses.keys():
+    if cheese not in pos_infected_cheeses:
+        for shelf in cheeses[cheese]:
+            cheese_to_be_sold.append((shelf,cheese))
+
+for t in cheese_to_be_sold:
+    print("%s %s" % t)
