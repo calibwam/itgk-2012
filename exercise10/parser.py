@@ -5,12 +5,13 @@ def main():
     keys = 0
     while True:
         n = nummer()
+        print(n)
         if n not in memory:
             memory[n] = {"venstre": False, "høyre": False}
             if er_nokkel():
                 plukk_opp()
                 keys += 1
-                memory = {}
+                memory = {n: {"venstre":False, "høyre":False}}
             elif er_stank():
                 gaa_tilbake()
                 print("it stinks")
@@ -30,19 +31,19 @@ def main():
                 gaa_ut()
                 print("we're out!")
                 return
-        else:
+        if n in memory:
+            if not memory[n]["venstre"]:
+                left = gaa_venstre()
+                if left:
+                    memory[n]["venstre"] = True
+                    continue
+            if not memory[n]["høyre"]:
+                right = gaa_hoyre()
+                if right:
+                    memory[n]["høyre"] = True
+                    continue
+
             gaa_tilbake()
-            continue
-        if not memory[n]["venstre"]:
-            left = gaa_venstre()
-            if left:
-                memory[n]["venstre"] = True
-                continue
-        if not memory[n]["høyre"]:
-            right = gaa_hoyre()
-            if right:
-                memory[n]["høyre"] = True
-                continue
 
 if __name__ == "__main__":
     main()
